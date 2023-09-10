@@ -1,7 +1,84 @@
-<h1>Shopping List Page</h1>
+<!DOCTYPE html>
 
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title></title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="style.css">
+    </head>
+    <body>
+        <center>
+            <div id="intro">
+                <h1>Crimson Chest</h1>
+                <h2>Name: {{ name }}</h2>
+                <h2>Class: {{ class }}</h2>
+            </div>
+        
+        <table border="10">
+            <tr>
+                <th>Name</th>
+                <th>Amount</th>
+                <th>Description</th>
+                <th>Modifiers</th>
+                <th>Price</th>
+            </tr>
+            <tr id="katanageming">
+                <td>Zealous Katana<img src="https://static.wikia.nocookie.net/terraria_gamepedia/images/e/e9/Katana.png/revision/latest?cb=20221122015136&format=original"/></td>
+                <td>3</td>
+                <td><ul>
+                    <li>Type            : Weapon</li>
+                    <li>Damage          : 18 (Melee)</li>
+                    <li>Knockback	    : 3.5 (Weak)</li>
+                    <li>Critical chance	: 19%</li>
+                    <li>Use time	    : 20 (Very fast)</li>
+                    <li>Rarity level    : 1</li>
+                </ul></td>
+                <td>
+                    <ul>
+                    <li style="color: #36ed1a;">Critical chance : +5%</li>
+                    </ul></td>
+                <td>
+                    <ul>
+                    <li>Buy     : 10 Gold / 1000 Silver </li>
+                    <li>Sell    : 80 Silver </li>
+                    </ul>
+                </td>
+            </tr>
+            <tr>
+                <td>Bulky Zenith<img src="https://static.wikia.nocookie.net/terraria_gamepedia/images/6/66/Zenith.png/revision/latest?cb=20200516223829&format=original"/></td>
+                <td>1</td>
+                <td>
+                    <ul>
+                    <li>Type            : Weapon</li>
+                    <li>Damage	        : 190 (Melee)</li>
+                    <li>Knockback	    : 6.5 (Strong)</li>
+                    <li>Critical chance	: 14%%</li>
+                    <li>Use time	    : 30 (Average)</li>
+                    <li>Velocity	    : 32 (effective)</li>
+                    <li>Rarity level    : 10</li>
+                   </ul>
+                </td>
+                <td>
+                    <ul>
+                        <li style="color: #36ed1a;">Damage          : +5%</li>
+                        <li style="color: red;">Speed           : -15%</li>
+                        <li style="color: #36ed1a;">Size            : +10%</li>
+                        <li style="color: #36ed1a;">Knockback       : +10%</li>
+                    </ul>
+                </td>
+                <td>
+                    <ul>
+                    <li>Buy     : Cannot buy this item </li>
+                    <li>Sell    : 20 Gold </li>
+                    </ul>
+                </td>
+            </tr>
+        </table>
+        </center>
+        <script src="" async defer></script>
+    </body>
+</html>
 
-<h5>Name: </h5>
-<p>{{ name }}<p>
-<h5>Class: </h5>
-<p>{{ class }}<p>
