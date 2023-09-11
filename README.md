@@ -30,7 +30,7 @@ Berikut adalah tautan link adaptable saya. [Adaptable Link](https://crimson-ches
 ## Melakukan routing pada proyek agar dapat menjalankan aplikasi main.
 
 1. Buatlah berkas `urls.py` di dalam direktori main. Lalu isi `urls.py` dengan kode ini
-```
+```py
     from django.urls import path 
     from main.views import show_main
 
@@ -46,7 +46,7 @@ Berikut adalah tautan link adaptable saya. [Adaptable Link](https://crimson-ches
 
 1. Buka file `models.py` dan isi file tersebut dengan nama Item dan atribut-atribut dan tipe data yang ingin digunakan.
 2. Lalu salin kode di bawah ini, dan letakkan pada file `models.py`
-```
+```py
 from django.db import models
 
 class Product(models.Model):
@@ -63,11 +63,11 @@ class Product(models.Model):
 
 1. Buka file `views.py` yang ada di dalam direktori aplikasi main.
 2. Tambahkan import berikut 
-```
+```py
 from django.shortcuts import render
 ```
 3. Lalu tambahkan fungsi `show_main`
-```
+```py
 def show_main(request):
     context = {
         'name': '(nama kalian)',
@@ -78,7 +78,7 @@ def show_main(request):
 ```
 4. Setelah itu buka file `main.html`yang adad di dalam direktori templates pada direktori `main` dan ubah nama dan kelas yang sebelumnya dibuat secara statis menjadi kode Django yang sesuai untuk menampilkan data.
 
-```
+```py
 <h5>Name: </h5>
 <p>{{ name }}<p>
 <h5>Class: </h5>
@@ -89,7 +89,7 @@ Penjelasan : Sintaks Django {{ name }} dan {{ class }} digunakan untuk menampilk
 ## Membuat sebuah routing pada urls.py aplikasi main untuk memetakan fungsi yang telah dibuat pada views.py.
 
 1. Membuat file `urls.py` pada direktori `main`. Lalu, isi `urls.py` yang telah kita buat sebelumnya dengan kode berikut.
-```
+```python
 from django.urls import path
 from main.views import show_main
 
@@ -124,3 +124,39 @@ Penjelasan : Berkas urls.py pada aplikasi main bertanggung jawab untuk mengatur 
 6. Tentukan nama aplikasi yang juga akan menjadi nama domain situs web.
 7. Centang "HTTP Listener on PORT" dan klik "Deploy App" untuk memulai proses deployment aplikasi.
 8. Lalu tunggu hingga semua indikasi berwarna hijau, yang menanjakan semua proses telah berhasil
+
+## Bagan yang berisi request client ke web aplikasi berbasis Django
+ 
+Pertama user akan meminta request kepada Django, lalu Django akan menggunakan `urls.py`. Setelah itu, `views.py` akan mengatur berbagai macam bentuk interaksi agar di dalam `models.py` dapat mengelola dan menyajikan data agar data yang telah diolah oleh `models.py` dapat ditampilkan pada templates dalam berkas `html`. Pada berkas `html`, berisi berbagai macam kode html seperti kode untuk membuat tabel, list, menentukan ukuran font dan lain lain, serta pada berkas `html` juga mengandung tag template Django agar dapat memasukan data dari dalam `views.py` ke dalam berkas `html`. Setelah selesai diolah, outputr tersebut akan dikirimkan sebagai respon kepada user.
+
+## Mengapa kita menggunakan virtual Environment
+
+Virtual environment adalah cara untuk menjaga proyek perangkat lunak Anda tetap rapi dan teratur. Virtual environment adalah seperti punya tempat khusus untuk setiap resep, sehingga Anda bisa bekerja dengan lebih teratur dan aman.  Virtual environment membantu kita membuat "lingkungan" terpisah untuk setiap proyek. Ini berguna karena setiap proyek mungkin memerlukan versi yang berbeda dari perpustakaan Python atau paket tambahan. Dengan virtual environment, kita dapat mengisolasi proyek-proyek tersebut sehingga tidak ada konflik antara mereka.
+
+Dengan virtual environment, kita dapat menginstal paket-paket Python yang diperlukan untuk proyek kita tanpa merusak instalasi Python global pada komputer kita. Ini memudahkan kita dalam mengelola dependensi proyek secara terpisah. Serta Virtual environment membantu menjaga kebersihan dan keamanan sistem kita. Kita dapat menginstal atau menghapus paket dengan bebas dalam lingkungan virtual tanpa mengkhawatirkan dampaknya pada sistem operasi utama.
+
+## Apakah kita tetap dapat membuat aplikasi web berbasis Django tanpa menggunakan virtual environment?
+Jadi, kenapa kita perlu virtual environment saat membuat aplikasi web berbasis Django? Karena dalam pengembangan perangkat lunak, kita seringkali harus menggunakan berbagai versi berbeda dari bahasa pemrograman, perpustakaan, atau alat tertentu. Ini bisa menjadi seperti resep-resep yang berbeda dalam masak. Virtual environment memungkinkan kita untuk memiliki lingkungan yang terisolasi di dalam proyek kita, di mana kita dapat menginstal versi tertentu dari bahasa pemrograman dan perpustakaan yang kita butuhkan tanpa merusak atau mengganggu proyek lain.
+
+## Jelaskan apakah itu MVC, MVT, MVVM dan perbedaan dari ketiganya
+
+MVC (Model-View-Controller), MVT (Model-View-Template), dan MVVM (Model-View-ViewModel) adalah tiga kerangka kerja desain yang umumnya digunakan dalam pengembangan perangkat lunak, terutama dalam lingkungan pengembangan aplikasi berbasis web dan antarmuka pengguna (UI). Tujuan utama dari kerangka kerja ini adalah untuk memecah aplikasi menjadi komponen-komponen yang terpisah, sehingga mempermudah proses pengembangan, perawatan, dan pengelolaan kode yang lebih terstruktur dan rapi.
+
+##  perbedaan dari ketiganya
+
+1. MVC (Model-View-Controller):
+
+Pemisahan Kontrol: MVC memisahkan komponen-komponen aplikasi menjadi Model (data dan logika), View (tampilan), dan Controller (logika pengendalian). Controller bertindak sebagai perantara antara Model dan View.
+Umumnya Digunakan di Aplikasi Web: MVC adalah arsitektur yang umum digunakan dalam pengembangan aplikasi web dan desktop.
+Contoh: Ruby on Rails, AngularJS (versi lama).
+
+2. MVT (Model-View-Template):
+
+Mirip dengan MVC: MVT adalah konsep yang serupa dengan MVC, dengan Model yang mewakili data dan logika, View yang menampilkan data, dan Template yang mengatur cara data ditampilkan dalam HTML.
+Khusus untuk Django: MVT adalah konsep yang khusus digunakan dalam kerangka kerja web Django untuk pengembangan aplikasi web berbasis Python.
+
+3. MVVM (Model-View-ViewModel):
+
+Peran ViewModel: MVVM mempertahankan Model (data dan logika), View (tampilan), dan menambahkan komponen ViewModel. ViewModel berfungsi sebagai perantara antara Model dan View, mengubah data dari Model ke format yang dapat ditampilkan oleh View dan mengatur tindakan pengguna pada tampilan.
+Umumnya Digunakan di Aplikasi UI: MVVM adalah arsitektur yang sering digunakan dalam pengembangan aplikasi berbasis antarmuka pengguna (UI), seperti aplikasi mobile dan desktop.
+
