@@ -126,8 +126,9 @@ Penjelasan : Berkas urls.py pada aplikasi main bertanggung jawab untuk mengatur 
 8. Lalu tunggu hingga semua indikasi berwarna hijau, yang menanjakan semua proses telah berhasil
 
 ## Bagan yang berisi request client ke web aplikasi berbasis Django
- 
-Pertama user akan meminta request kepada Django, lalu Django akan menggunakan `urls.py`. Setelah itu, `views.py` akan mengatur berbagai macam bentuk interaksi agar di dalam `models.py` dapat mengelola dan menyajikan data agar data yang telah diolah oleh `models.py` dapat ditampilkan pada templates dalam berkas `html`. Pada berkas `html`, berisi berbagai macam kode html seperti kode untuk membuat tabel, list, menentukan ukuran font dan lain lain, serta pada berkas `html` juga mengandung tag template Django agar dapat memasukan data dari dalam `views.py` ke dalam berkas `html`. Setelah selesai diolah, outputr tersebut akan dikirimkan sebagai respon kepada user.
+![How Django Framework Works](https://drive.google.com/file/d/1eSlP2L-7huGWWhhJUk_-ny3W0kK3FAX5/view?usp=sharing) 
+
+Pertama user akan meminta request kepada Django, lalu Django akan menggunakan `urls.py`. Setelah itu, `views.py` akan mengatur berbagai macam bentuk interaksi agar di dalam `models.py` dapat mengelola dan menyajikan data agar data yang telah diolah oleh `models.py` dapat ditampilkan pada templates dalam berkas `html`. Pada berkas `html`, berisi berbagai macam kode html seperti kode untuk membuat tabel, list, menentukan ukuran font dan lain lain, serta pada berkas `html` juga mengandung tag template Django agar dapat memasukan data dari dalam `views.py` ke dalam berkas `html`. Setelah selesai diolah, output tersebut akan dikirimkan sebagai respon kepada user.
 
 ## Mengapa kita menggunakan virtual Environment
 
