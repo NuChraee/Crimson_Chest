@@ -49,11 +49,13 @@ Berikut adalah tautan link adaptable saya. [Adaptable Link](https://crimson-ches
 ```py
 from django.db import models
 
-class Product(models.Model):
+class Item(models.Model):
     name = models.CharField(max_length=255)
     date_added = models.DateField(auto_now_add=True)
     price = models.IntegerField()
     description = models.TextField()
+    modifiers = models.TextField()
+    amount = models.IntegerField()
 ```
 3. Jalankan perintah `python manage.py makemigrations` di command prompt untuk mempersiapkan migrasi skema model ke dalam database Django lokal.
 
@@ -66,17 +68,18 @@ class Product(models.Model):
 ```py
 from django.shortcuts import render
 ```
-3. Lalu tambahkan fungsi `show_main`
+3. Lalu tambahkan fungsi `show_main` dengan context sesuai kebutuhan kalian
 ```py
 def show_main(request):
     context = {
         'name': '(nama kalian)',
         'class': '(kelas PBP kalian)'
+        'dan lainnya sesuai kebutuhan kalian'
     }
 
     return render(request, "main.html", context)
 ```
-4. Setelah itu buka file `main.html`yang adad di dalam direktori templates pada direktori `main` dan ubah nama dan kelas yang sebelumnya dibuat secara statis menjadi kode Django yang sesuai untuk menampilkan data.
+4. Setelah itu buka file `main.html`yang ada di dalam direktori templates pada direktori `main` dan ubah nama dan kelas dan hal lainnya sesuai dengan isi context yang telah anda isi sebelumnya yang awalnya dibuat secara statis menjadi kode Django yang sesuai untuk menampilkan data.
 
 ```py
 <h5>Name: </h5>
