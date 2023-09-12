@@ -4,7 +4,7 @@ NPM     : 2206819092
 
 Kelas   : PBP C
 
-Berikut adalah tautan link adaptable saya. [Adaptable Link](https://crimson-chestvol2.adaptable.app)
+Berikut adalah tautan link adaptable saya. [Adaptable Link](https://crimson-chestvol2.adaptable.app/main/)
 
 ## Membuat proyek Django baru
 
