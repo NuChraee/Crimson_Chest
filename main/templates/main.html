@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title></title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="style.css">
+        <style>
+            .green-text {
+                color: #36ed1a;
+            }
+            .red-text {
+                color: red; 
+            }
+            .text-align{
+                text-align : center;
+            }
+        </style>
+    </head>
+    <body>
+        <center>
+            <div id="intro">
+                <h1>{{ appname }}</h1>
+                <h2>Name: {{ name }}</h2>
+                <h2>Class: {{ class }}</h2>
+            </div>
+        
+        <table border="10">
+            <tr>
+                <th>Name</th>
+                <th>Image</th>
+                <th>Amount</th>
+                <th>Description</th>
+                <th>Modifiers</th>
+                <th>Price</th>
+            </tr>
+            <tr>
+                <td>{{ namekatana }}</td>
+                <td><img src="https://static.wikia.nocookie.net/terraria_gamepedia/images/e/e9/Katana.png/revision/latest?cb=20221122015136&format=original"/></td>
+                <td class = "text-align">{{amountkatana}}</td>
+                <td>
+                    <pre>{{descriptionkatana}}</pre>
+                </td>
+                <td>
+                    <pre>{{modifierskatana|safe}}</pre>
+                <td>
+                    <pre>{{pricekatana}}</pre>
+                </td>
+            </tr>
+            <tr>
+                <td>{{namezenith}}</td>
+                <td><img src="https://static.wikia.nocookie.net/terraria_gamepedia/images/6/66/Zenith.png/revision/latest?cb=20200516223829&format=original"/></td>
+                <td class="text-align">{{amountzenith}}</td>
+                <td>
+                    <pre>{{descriptionzenith}}</pre>
+                </td>
+                <td>
+                    <pre>{{ modifierszenith|safe }}</pre>
+                </td>
+                <td>
+                    <pre>{{pricezenith}}</pre>
+                </td>
+            </tr>
+        </table>
+        </center>
+        <script src="" async defer></script>
+    </body>
+</html>
+
