@@ -1,3 +1,9 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+
+
 <!DOCTYPE html>
 
 <html>
@@ -9,14 +15,29 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <link rel="stylesheet" href="style.css">
         <style>
-            .green-text {
-                color: #36ed1a;
+            *{
+                background-color:antiquewhite;
             }
-            .red-text {
-                color: red; 
+            
+            #buttonAdd {
+                border-width: 2px; 
+                padding: 5px;
+                border-radius: 50px;
+                border-style:groove;
             }
-            .text-align{
-                text-align : center;
+
+            table{
+                background: linear-gradient(4deg, #F94C10 6%, #F8DE22 99%);
+            }
+
+            #add {
+                    background: linear-gradient(4deg, #F94C10 6%, #F8DE22 99%);
+                    color: white;
+                    font-weight: bold;
+                    border: 2px solid #25316D;
+                    border-radius: 10px;
+                    cursor: pointer;
+                    padding: 10px 10px;
             }
         </style>
     </head>
@@ -28,45 +49,47 @@
                 <h2>Class: {{ class }}</h2>
             </div>
         
-        <table border="10">
-            <tr>
-                <th>Name</th>
-                <th>Image</th>
-                <th>Amount</th>
-                <th>Description</th>
-                <th>Modifiers</th>
-                <th>Price</th>
-            </tr>
-            <tr>
-                <td>{{ namekatana }}</td>
-                <td><img src="https://static.wikia.nocookie.net/terraria_gamepedia/images/e/e9/Katana.png/revision/latest?cb=20221122015136&format=original"/></td>
-                <td class = "text-align">{{amountkatana}}</td>
-                <td>
-                    <pre>{{descriptionkatana}}</pre>
-                </td>
-                <td>
-                    <pre>{{modifierskatana|safe}}</pre>
-                <td>
-                    <pre>{{pricekatana}}</pre>
-                </td>
-            </tr>
-            <tr>
-                <td>{{namezenith}}</td>
-                <td><img src="https://static.wikia.nocookie.net/terraria_gamepedia/images/6/66/Zenith.png/revision/latest?cb=20200516223829&format=original"/></td>
-                <td class="text-align">{{amountzenith}}</td>
-                <td>
-                    <pre>{{descriptionzenith}}</pre>
-                </td>
-                <td>
-                    <pre>{{ modifierszenith|safe }}</pre>
-                </td>
-                <td>
-                    <pre>{{pricezenith}}</pre>
-                </td>
-            </tr>
-        </table>
+            <table border=>
+                <tr>
+                    <th>Name</th>
+                    <th>Amount</th>
+                    <th>Price</th>
+                    <th>Sell</th>  <!-- Tambahkan kolom aksi -->
+                    <th>Description</th>
+                    <th>Modifiers</th>
+                    <th>Date Added</th>
+                </tr>
+            
+                {% comment %} Berikut cara memperlihatkan data produk di bawah baris ini {% endcomment %}
+            
+                {% for product in products %}
+                    <tr>
+                        <td>{{ product.name }}</td>
+                        <td>{{ product.amount }}</td>
+                        <td>{{ product.price }}</td>
+                        <td>{{ product.sell }}</td>
+                        <td>
+                            {{ product.description|safe|linebreaksbr }}
+                        </td>
+                        <td>
+                            {{ product.modifiers|safe|linebreaksbr }}
+                        </td>
+                        <td>{{ product.date_added }}</td>
+                    </tr>
+                {% endfor %}
+            </table>
+            
+            <br />
+            
+            <a href="{% url 'main:create_product' %}" >
+                <button id="add">
+                    Add New Product
+                </button>
+            </a>
+            
         </center>
         <script src="" async defer></script>
     </body>
 </html>
 
+{% endblock content %}
