@@ -507,8 +507,8 @@ Jadi, perbedaan utama antara ketiganya adalah dalam tujuan dan sintaksis mereka.
 ### JSON
 ![Postman JSON](/IMG/JSON%20Screenshot.png)
 
-## XML by ID
+### XML by ID
 ![Postman XML by ID](/IMG/XML%20by%20ID%20Screenshot.png)
 
-## JSON by ID
+### JSON by ID
 ![Postman JSON by ID](/IMG/JSON%20by%20ID%20Screenshot.png)
