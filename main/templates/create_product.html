@@ -1,0 +1,40 @@
+{% extends 'base.html' %} 
+
+{% block content %}
+<h1>Add New Items</h1>
+
+<style>
+    *{
+        background-color:antiquewhite;
+    }
+
+    #add{
+        background: linear-gradient(4deg, #F94C10 6%, #F8DE22 99%);
+        color: white;
+        font-weight: bold;
+        border: 2px solid #25316D;
+        border-radius: 10px;
+        cursor: pointer;
+        padding: 10px 10px;
+    }
+
+    h1{
+        text-align: center;
+    }
+</style>
+<center>
+<form method="POST">
+    {% csrf_token %}
+    <table>
+        {{ form.as_table }}
+        <tr>
+            <td></td>
+            <td>
+                <input id="add" type="submit" value="Add Product"/>
+            </td>
+        </tr>
+    </table>
+</form>
+</center>
+
+{% endblock %}
