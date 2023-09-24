@@ -15,8 +15,12 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <link rel="stylesheet" href="style.css">
         <style>
-            *{
-                background-color:antiquewhite;
+            body {
+                background-image: url("https://free4kwallpapers.com/uploads/originals/2022/03/28/anime-landscape-for-desktop-anime-garden-sunshine-flowers-wallpaper.jpg");
+                background-size: 100% 100%;
+                background-repeat: no-repeat;
+                background-attachment: fixed;
+                font-family: Arial, sans-serif;
             }
             
             #buttonAdd {
@@ -27,7 +31,7 @@
             }
 
             table{
-                background: linear-gradient(4deg, #F94C10 6%, #F8DE22 99%);
+                background-color: rgba(255, 255, 255, 0.8);
             }
 
             #add {
@@ -38,6 +42,41 @@
                     border-radius: 10px;
                     cursor: pointer;
                     padding: 10px 10px;
+            }
+
+            #addbtn {
+                width:100% ;
+                background: linear-gradient(4deg, #F94C10 6%, #F8DE22 99%);
+                color: white;
+                font-weight: bold;
+                border: 2px solid #25316D;
+                border-radius: 10px;
+                cursor: pointer;
+                padding: 10px 10px;
+                display: block
+            }
+            
+            #logout{
+                    background: linear-gradient(4deg, #F94C10 6%, #F8DE22 99%);
+                    color: white;
+                    font-weight: bold;
+                    border: 2px solid #25316D;
+                    border-radius: 10px;
+                    cursor: pointer;
+                    padding: 10px 10px;
+                    margin-top: 10px; 
+                    display: block;
+            }
+
+            #intro{
+                color :greenyellow;
+            }
+
+            #log{
+                color:whitesmoke;
+                position: absolute;
+                top: 10px; /* Atur posisi vertikal */
+                right: 10px;
             }
         </style>
     </head>
@@ -58,6 +97,7 @@
                     <th>Description</th>
                     <th>Modifiers</th>
                     <th>Date Added</th>
+                    <th>Options</th>
                 </tr>
             
                 {% comment %} Berikut cara memperlihatkan data produk di bawah baris ini {% endcomment %}
@@ -75,6 +115,19 @@
                             {{ product.modifiers|safe|linebreaksbr }}
                         </td>
                         <td>{{ product.date_added }}</td>
+                        <td>
+                            {% if product.id %}  <!-- Memastikan bahwa product.id ada dan valid -->
+                                <a href="{% url 'main:increase_stock' product.id %}">
+                                    <button id="addbtn">Add Stock</button>
+                                </a>
+                                <a href="{% url 'main:decrease_stock' product.id %}">
+                                    <button id="addbtn">Reduce Stock</button>
+                                </a>
+                                <a  href="{% url 'main:delete_product' product.id %}">
+                                    <button id="addbtn">Delete Product</button>
+                                </a>
+                            {% endif %}
+                        </td>
                     </tr>
                 {% endfor %}
             </table>
@@ -84,6 +137,17 @@
             <a href="{% url 'main:create_product' %}" >
                 <button id="add">
                     Add New Product
+                </button>
+            </a>
+
+
+            
+                
+            <h5 id="log">Sesi terakhir login: {{ last_login }}</h5>
+            
+            <a href="{% url 'main:logout' %}">
+                <button id="logout">
+                    Logout
                 </button>
             </a>
             
