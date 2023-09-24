@@ -1,0 +1,141 @@
+{% extends 'base.html' %}
+
+{% block meta %}
+    <title>Register</title>
+{% endblock meta %}
+
+{% block content %}  
+<style>
+    .back-button {
+    display: inline-block;
+    text-align: center;
+    width: 80%;
+    background-color: #007BFF;
+    color: #fff;
+    padding: 10px 15px;
+    border-radius: 4px;
+    cursor: pointer;
+    margin-left: 10px;  /* Penambahan margin di sebelah kiri untuk memberi jarak */
+    text-decoration: none;
+    }
+
+    .back-button:hover {
+        background-color: #0056b3;
+    }
+
+    body {
+        background-image: url("https://free4kwallpapers.com/uploads/originals/2022/03/28/anime-landscape-for-desktop-sea-ships-colorful-clouds-scenic-tree-horizon-wallpaper.jpg");
+        background-size: 100% 100%;
+        background-repeat: no-repeat;
+        background-attachment: fixed;
+        font-family: Arial, sans-serif;
+    }
+
+    .login {
+        max-width: 100%;
+        margin: auto auto;
+        padding: 20px;
+        box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.1);
+        background-color: rgba(255, 255, 255, 0.8);
+        border-radius: 8px;
+    }
+
+    h1 {
+        text-align: center;
+        margin-bottom: 20px;
+        color: #333;
+    }
+
+    table {
+        width: 100%;
+    }
+
+    td {
+        padding: 8px 0;
+    }
+
+    input[type="text"], input[type="password"] {
+        width: 100%;
+        padding: 10px;
+        margin-bottom: 10px; /* Ubah margin menjadi margin-bottom */
+        border: 1px solid #ccc;
+        border-radius: 4px;
+    }
+
+    input[type="submit"] {
+        background-color: #007BFF;
+        color: #fff;
+        padding: 10px 15px;
+        border: none;
+        border-radius: 4px;
+        cursor: pointer;
+        width: 100%;
+    }
+
+    input[type="submit"]:hover {
+        background-color: #0056b3;
+    }
+
+    ul {
+        list-style-type: none;
+        padding-left: 0;
+        margin: 0;
+        text-align: center;
+    }
+
+    li {
+        color: black;
+        border-radius: 4px;
+        padding: 5px 10px;
+        margin-bottom: 10px; 
+    }
+</style>
+
+<div class="login">
+    <h1>Register</h1>  
+
+    <form method="POST">
+        {% csrf_token %}
+        <table>
+            <!-- Looping melalui setiap field dalam form -->
+            {% for field in form %}
+                <tr>
+                    <td>{{ field.label_tag }}</td>
+                    <td>{{ field }}</td>
+                </tr>
+                <!-- Menampilkan pesan kesalahan untuk field ini jika ada -->
+                {% if field.errors %}
+                    <tr>
+                        <td></td>
+                        <td>
+                            <ul>
+                                {% for error in field.errors %}
+                                    <li>{{ error }}</li>
+                                {% endfor %}
+                            </ul>
+                        </td>
+                    </tr>
+                {% endif %}
+            {% endfor %}
+            <tr>
+                <td>
+                    <a href="{% url 'main:login' %}" class="back-button">Back</a>
+                </td>
+                <td>
+                    <input type="submit" name="submit" value="Daftar"/>
+                </td>
+            </tr>
+        </table>
+    </form>
+
+    <!-- Messages tetap ada di sini untuk menampilkan pesan lain yang mungkin Anda butuhkan -->
+    {% if messages %}
+        <ul>
+            {% for message in messages %}
+                <li>{{ message }}</li>
+            {% endfor %}
+        </ul>
+    {% endif %}
+</div>
+
+{% endblock content %}
