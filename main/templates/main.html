@@ -88,7 +88,7 @@
                 <h2>Class: {{ class }}</h2>
             </div>
         
-            <table border=>
+            <table>
                 <tr>
                     <th>Name</th>
                     <th>Amount</th>
@@ -131,7 +131,7 @@
                     </tr>
                 {% endfor %}
             </table>
-            
+            <h3 href="">{{products|length}}</h3>
             <br />
             
             <a href="{% url 'main:create_product' %}" >
@@ -139,10 +139,7 @@
                     Add New Product
                 </button>
             </a>
-
-
-            
-                
+    
             <h5 id="log">Sesi terakhir login: {{ last_login }}</h5>
             
             <a href="{% url 'main:logout' %}">

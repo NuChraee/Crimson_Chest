@@ -731,7 +731,7 @@ def show_main(request):
 ...
 ```
 
-## Menggunakan Data Dari Cookies
+## Menampilkan detail informasi pengguna yang sedang logged in seperti username dan menerapkan cookies seperti last login pada halaman utama aplikasi
 
 1. jika kita sedang berada di halaman yang berisikan daftar produk, logout terlebih dahulu
 2. Buka `views.py` pada subdirektori `main` lalu masukan import dibawah ini
@@ -775,6 +775,44 @@ def logout_user(request):
 ```py
 <h5>Sesi terakhir login: {{ last_login }}</h5>
 ```
+
+## Menghubungkan model Item dengan User
+
+1. Buka `models.py` yang ada pada subdirektori `main` dan tambahkan import ini
+```py
+from django.contrib.auth.models import User
+```
+
+2. Tambahkan kode ini pada model `Item`
+```py
+class Item(models.Model):
+    user = models.ForeignKey(User, on_delete=models.CASCADE)
+    ...
+```
+
+3. Buka `views.py` yang ada pada subdirektori `main`, dan ubah potongan kode pada fungsi `create_product` menjadi seperti ini
+```py
+def create_product(request):
+    form = ProductForm(request.POST or None)
+
+    if form.is_valid() and request.method == "POST":
+        product = form.save(commit=False)
+        product.user = request.user
+        product.save()
+        return HttpResponseRedirect(reverse('main:show_main'))
+
+    context = {'form': form}
+    return render(request, "create_product.html", context)
+```
+
+4. Lalu lakukan perintah `python manage.py makemigrations` pada mode virtual environment
+5. Seharusnya, akan muncul error saat melakukan migrasi model. Pilih 1 untuk menetapkan default value untuk field user pada semua row yang telah dibuat pada basis data.
+![Alt text](/IMG/makemigrasi1.png) 
+
+6. Ketik angka 1 lagi untuk menetapkan user dengan ID 1 (yang sudah kita buat sebelumnya) pada model yang sudah ada.
+![Alt text](/IMG/makemigrasi2.png)
+
+7. Lakukan python manage.py migrate untuk mengaplikasikan migrasi yang dilakukan pada poin sebelumnya.
 
 ## Django UserCreationForm:
 UserCreationForm adalah form kelas bawaan Django yang digunakan untuk mengatur registrasi pengguna baru. Form ini berisi validasi untuk field seperti username, password1 (untuk password), dan password2 (untuk konfirmasi password).

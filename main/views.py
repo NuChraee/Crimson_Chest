@@ -28,12 +28,12 @@ def show_main(request):
         'class': 'PBP C', # Kelas PBP kamu
         'products': products,
         'last_login': request.COOKIES.get('last_login'),
+        'product_count': Item.objects.filter(user=request.user).count()
     }
 
     return render(request, "main.html", context)
 
 def increase_stock(request, product_id):
-    form = ProductForm(request.POST or None)
     product = Item.objects.get(pk=product_id)
     product.amount += 1
     product.save()
@@ -44,15 +44,12 @@ def decrease_stock(request, product_id):
     product.amount -= 1
     if product.amount <= 0:
         product.delete()
-        # Anda mungkin ingin menambahkan pesan untuk memberi tahu pengguna bahwa produk telah dihapus.
-        messages.success(request, f'Product {product.name} has been deleted because the amount reached zero.')
-        return redirect('main:show_main')  # Asumsikan ini adalah nama dari halaman daftar produk
+        return redirect('main:show_main') 
     else:
         product.save()
     return HttpResponseRedirect(reverse('main:show_main'))
 
 def delete_product(request, product_id):
-    form = ProductForm(request.POST or None)
     Item.objects.get(pk=product_id).delete()
     return HttpResponseRedirect(reverse('main:show_main'))
 
