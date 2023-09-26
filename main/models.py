@@ -15,3 +15,4 @@ class Item(models.Model):
     amount = models.IntegerField(null=True)
     options = models.TextField(null=True)
     
+    
