@@ -1,11 +1,11 @@
-{% extends 'base.html' %} 
+{% extends 'base.html' %}
+
+{% load static %}
 
 {% block content %}
-<h1>Add New Items</h1>
-
 <style>
     body {
-        background-image: url("https://free4kwallpapers.com/uploads/wallpaper/yesterday-wallpaper-1920x1080-wallpaper.jpg");
+        background-image: url("https://free4kwallpapers.com/uploads/originals/2022/06/19/blue-sky-supremacy-wallpaper.jpg");
         background-size: 100% 100%;
         background-repeat: no-repeat;
         background-attachment: fixed;
@@ -41,6 +41,8 @@
     }
 </style>
 <center>
+<h1>Edit Product</h1>
+
 <form method="POST">
     {% csrf_token %}
     <table>
@@ -48,7 +50,7 @@
         <tr>
             <td></td>
             <td>
-                <input id="add" type="submit" value="Add Product"/>
+                <input id="add" type="submit" value="Edit Product"/>
             </td>
             <td>
                 <a href="{% url 'main:show_main' %}" id="back">Back</a>
@@ -57,5 +59,4 @@
     </table>
 </form>
 </center>
-
 {% endblock %}
