@@ -1364,47 +1364,47 @@ Sumber : [CSS Selectors](https://www.w3schools.com/css/css_selectors.asp#:~:text
 
 ## HTML5 Tag
 
-1. <a>: Tag ini digunakan untuk membuat hyperlink, yang menghubungkan satu halaman ke halaman lain, atau ke sumber daya lain, seperti email atau file. Atribut 'href' digunakan untuk menentukan URL tujuan.
+1. `<a>`: Tag ini digunakan untuk membuat hyperlink, yang menghubungkan satu halaman ke halaman lain, atau ke sumber daya lain, seperti email atau file. Atribut 'href' digunakan untuk menentukan URL tujuan.
 
-2. <abbr>: Tag ini digunakan untuk menandai singkatan atau akronim. Atribut 'title' dapat digunakan untuk memberikan penjelasan lengkap dari singkatan tersebut.
+2. `<abbr>`: Tag ini digunakan untuk menandai singkatan atau akronim. Atribut 'title' dapat digunakan untuk memberikan penjelasan lengkap dari singkatan tersebut.
 
-3. <br>: Tag 'break line'. Digunakan untuk memasukkan jeda baris dalam teks.
+3.` <br>`: Tag 'break line'. Digunakan untuk memasukkan jeda baris dalam teks.
 
-4. <body>: Tag ini mendefinisikan isi dari dokumen HTML. Semua konten yang ditampilkan di browser (teks, gambar, video, dll) berada di dalam tag <body>.
+4. `<body>`: Tag ini mendefinisikan isi dari dokumen HTML. Semua konten yang ditampilkan di browser (teks, gambar, video, dll) berada di dalam tag `<body>`.
 
-5. <button>: Digunakan untuk membuat tombol yang dapat diklik. Biasanya digunakan dalam formulir atau untuk trigger JavaScript.
+5. `<button>`: Digunakan untuk membuat tombol yang dapat diklik. Biasanya digunakan dalam formulir atau untuk trigger JavaScript.
 
-6. <center> (Tidak disarankan untuk digunakan): Tag ini digunakan untuk menyelaraskan konten ke tengah. Namun, penggunaannya sudah dianggap usang dan sebaiknya gunakan CSS untuk penyelarasan.
+6. `<center>` (Tidak disarankan untuk digunakan): Tag ini digunakan untuk menyelaraskan konten ke tengah. Namun, penggunaannya sudah dianggap usang dan sebaiknya gunakan CSS untuk penyelarasan.
 
-7. <div>: Tag 'division'. Digunakan sebagai wadah untuk konten lain dan sering digunakan bersama dengan CSS untuk styling dan layout.
+7. `<div>`: Tag 'division'. Digunakan sebagai wadah untuk konten lain dan sering digunakan bersama dengan CSS untuk styling dan layout.
 
-8. <font> (Tidak disarankan untuk digunakan): Digunakan untuk mendefinisikan warna, ukuran, dan jenis huruf teks. Namun, penggunaannya sudah dianggap usang dan sebaiknya gunakan CSS untuk styling teks.
+8. `<font>` (Tidak disarankan untuk digunakan): Digunakan untuk mendefinisikan warna, ukuran, dan jenis huruf teks. Namun, penggunaannya sudah dianggap usang dan sebaiknya gunakan CSS untuk styling teks.
 
-9. <footer>: Digunakan untuk mendefinisikan footer dari sebuah dokumen atau section. Biasanya berisi informasi hak cipta, link ke kebijakan privasi, dll.
+9. `<footer>`: Digunakan untuk mendefinisikan footer dari sebuah dokumen atau section. Biasanya berisi informasi hak cipta, link ke kebijakan privasi, dll.
 
-10. <header>: Digunakan untuk mendefinisikan header dari sebuah dokumen atau section. Bisa berisi judul, logo, navigasi, dll.
+10. `<header>`: Digunakan untuk mendefinisikan header dari sebuah dokumen atau section. Bisa berisi judul, logo, navigasi, dll.
 
-11. <head>: Tag ini mengandung informasi meta tentang dokumen, seperti judul, link ke CSS, JavaScript, dll. Ini bukan bagian dari konten yang ditampilkan kepada pengguna.
+11. `<head>`: Tag ini mengandung informasi meta tentang dokumen, seperti judul, link ke CSS, JavaScript, dll. Ini bukan bagian dari konten yang ditampilkan kepada pengguna.
 
-12. <h1> sampai <h6>: Ini adalah tag heading (judul). <h1> adalah judul utama dan paling penting, dan level kepentingannya menurun hingga <h6>.
+12. `<h1>` sampai `<h6>`: Ini adalah tag heading (judul). `<h1>` adalah judul utama dan paling penting, dan level kepentingannya menurun hingga `<h6>`.
 
-13. <hr>: 'Horizontal rule'. Digunakan untuk memasukkan garis horizontal untuk pemisah konten.
+13. `<hr>`: 'Horizontal rule'. Digunakan untuk memasukkan garis horizontal untuk pemisah konten.
 
-14. <li>: 'List item'. Digunakan di dalam list (<ul> atau <ol>) untuk mendefinisikan setiap itemnya.
+14. `<li>`: 'List item'. Digunakan di dalam list (`<ul>` atau `<ol>`) untuk mendefinisikan setiap itemnya.
 
-15. <ol>: 'Ordered list'. Digunakan untuk membuat daftar berurutan, dimana setiap item diawali dengan angka.
+15. `<ol>`: 'Ordered list'. Digunakan untuk membuat daftar berurutan, dimana setiap item diawali dengan angka.
 
-16. <style>: Digunakan untuk menambahkan styling CSS di dalam dokumen HTML.
+16. `<style>`: Digunakan untuk menambahkan styling CSS di dalam dokumen HTML.
 
-17. <table>: Tag ini digunakan untuk membuat sebuah tabel. Tabel adalah cara untuk menyajikan data dalam format kolom dan baris.
+17. `<table>`: Tag ini digunakan untuk membuat sebuah tabel. Tabel adalah cara untuk menyajikan data dalam format kolom dan baris.
 
-18. <td>: 'Table data'. Tag ini mendefinisikan sebuah sel data dalam tabel. Biasanya berada di dalam sebuah baris tabel (<tr>).
+18. `<td>`: 'Table data'. Tag ini mendefinisikan sebuah sel data dalam tabel. Biasanya berada di dalam sebuah baris tabel (<tr>).
 
-19. <th>: 'Table header'. Digunakan untuk mendefinisikan sel header dalam tabel, yang biasanya mengandung judul untuk kolom atau baris. Secara default, teks di dalam <th> ditebalkan dan diselaraskan ke tengah.
+19. `<th>`: 'Table header'. Digunakan untuk mendefinisikan sel header dalam tabel, yang biasanya mengandung judul untuk kolom atau baris. Secara default, teks di dalam `<th>` ditebalkan dan diselaraskan ke tengah.
 
-20. <tr>: 'Table row'. Digunakan untuk mendefinisikan baris dalam tabel. Sebuah baris tabel biasanya mengandung beberapa sel data (<td>) atau sel header (<th>).
+20. `<tr>`: 'Table row'. Digunakan untuk mendefinisikan baris dalam tabel. Sebuah baris tabel biasanya mengandung beberapa sel data (`<td>`) atau sel header `<th>`
 
-21. <ul>: 'Unordered list'. Digunakan untuk membuat daftar yang tidak berurutan, di mana setiap item biasanya ditandai dengan bullet. Setiap item dalam daftar ini ditandai dengan tag <li>.
+21. `<ul>`: 'Unordered list'. Digunakan untuk membuat daftar yang tidak berurutan, di mana setiap item biasanya ditandai dengan bullet. Setiap item dalam daftar ini ditandai dengan tag `<li>`.
 
 ## Perbedaan antara Margin dan Padding:
 
