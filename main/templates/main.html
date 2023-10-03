@@ -12,7 +12,7 @@
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <title></title>
         <meta name="description" content="">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <link rel="stylesheet" href="style.css">
         <style>
             body {
@@ -32,6 +32,7 @@
 
             table{
                 background-color: rgba(255, 255, 255, 0.8);
+                max-width: 100%;
             }
 
             #add {
@@ -126,6 +127,9 @@
                                 <a  href="{% url 'main:delete_product' product.id %}">
                                     <button id="addbtn">Delete Product</button>
                                 </a>
+                                <a href="{% url 'main:edit_product' product.pk %}">
+                                    <button id="addbtn">Edit</button>
+                                </a>
                             {% endif %}
                         </td>
                     </tr>
@@ -152,5 +156,6 @@
         <script src="" async defer></script>
     </body>
 </html>
+
 
 {% endblock content %}
