@@ -79,6 +79,11 @@
                 top: 10px; /* Atur posisi vertikal */
                 right: 10px;
             }
+
+            #Last {
+                background-color: rgba(245, 222, 179, 0.655);
+
+            }
         </style>
     </head>
     <body>
@@ -104,35 +109,68 @@
                 {% comment %} Berikut cara memperlihatkan data produk di bawah baris ini {% endcomment %}
             
                 {% for product in products %}
-                    <tr>
-                        <td>{{ product.name }}</td>
-                        <td>{{ product.amount }}</td>
-                        <td>{{ product.price }}</td>
-                        <td>{{ product.sell }}</td>
-                        <td>
-                            {{ product.description|safe|linebreaksbr }}
-                        </td>
-                        <td>
-                            {{ product.modifiers|safe|linebreaksbr }}
-                        </td>
-                        <td>{{ product.date_added }}</td>
-                        <td>
-                            {% if product.id %}  <!-- Memastikan bahwa product.id ada dan valid -->
-                                <a href="{% url 'main:increase_stock' product.id %}">
-                                    <button id="addbtn">Add Stock</button>
-                                </a>
-                                <a href="{% url 'main:decrease_stock' product.id %}">
-                                    <button id="addbtn">Reduce Stock</button>
-                                </a>
-                                <a  href="{% url 'main:delete_product' product.id %}">
-                                    <button id="addbtn">Delete Product</button>
-                                </a>
-                                <a href="{% url 'main:edit_product' product.pk %}">
-                                    <button id="addbtn">Edit</button>
-                                </a>
-                            {% endif %}
-                        </td>
-                    </tr>
+                    {% if forloop.last %}
+                        <tr id="Last">
+                            <td>{{ product.name }}</td>
+                            <td>{{ product.amount }}</td>
+                            <td>{{ product.price }}</td>
+                            <td>{{ product.sell }}</td>
+                            <td>
+                                {{ product.description|safe|linebreaksbr }}
+                            </td>
+                            <td>
+                                {{ product.modifiers|safe|linebreaksbr }}
+                            </td>
+                            <td>{{ product.date_added }}</td>
+                            <td>
+                                {% if product.id %}  <!-- Memastikan bahwa product.id ada dan valid -->
+                                    <a href="{% url 'main:increase_stock' product.id %}">
+                                        <button id="addbtn">Add Stock</button>
+                                    </a>
+                                    <a href="{% url 'main:decrease_stock' product.id %}">
+                                        <button id="addbtn">Reduce Stock</button>
+                                    </a>
+                                    <a  href="{% url 'main:delete_product' product.id %}">
+                                        <button id="addbtn">Delete Product</button>
+                                    </a>
+                                    <a href="{% url 'main:edit_product' product.pk %}">
+                                        <button id="addbtn">Edit</button>
+                                    </a>
+                                {% endif %}
+                            </td>
+                        </tr>
+
+                    {% else %}
+                        <tr>
+                            <td>{{ product.name }}</td>
+                            <td>{{ product.amount }}</td>
+                            <td>{{ product.price }}</td>
+                            <td>{{ product.sell }}</td>
+                            <td>
+                                {{ product.description|safe|linebreaksbr }}
+                            </td>
+                            <td>
+                                {{ product.modifiers|safe|linebreaksbr }}
+                            </td>
+                            <td>{{ product.date_added }}</td>
+                            <td>
+                                {% if product.id %}  <!-- Memastikan bahwa product.id ada dan valid -->
+                                    <a href="{% url 'main:increase_stock' product.id %}">
+                                        <button id="addbtn">Add Stock</button>
+                                    </a>
+                                    <a href="{% url 'main:decrease_stock' product.id %}">
+                                        <button id="addbtn">Reduce Stock</button>
+                                    </a>
+                                    <a  href="{% url 'main:delete_product' product.id %}">
+                                        <button id="addbtn">Delete Product</button>
+                                    </a>
+                                    <a href="{% url 'main:edit_product' product.pk %}">
+                                        <button id="addbtn">Edit</button>
+                                    </a>
+                                {% endif %}
+                            </td>
+                        </tr>
+                        {% endif %}
                 {% endfor %}
             </table>
             <h3 href="">{{products|length}}</h3>
