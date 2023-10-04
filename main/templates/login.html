@@ -21,7 +21,14 @@
         align-items: center;
         height: 100vh;
         max-width: 100%;
+        /* transition: width 2s, height 2s, transform 2s; */
     }
+/* 
+    .login:hover {
+        width: 400px;
+        height: 400px;
+        transform: rotate(18130deg);
+    } */
 
     .login {
         background-color: rgba(255, 255, 255, 0.8);
@@ -30,6 +37,22 @@
         text-align: center;
         padding: 30px;
         width: 300px;
+        transition: width 1s, height 1s, transform 1s;
+        /* background: linear-gradient(300deg, #00bfff, #ff4c68, #ef8172, green); */
+        /* background-size: 180% 180%;
+        animation: gradient-animation 1ms ease-in-out  infinite;
+        }
+
+        @keyframes gradient-animation {
+        0% {
+            background-position: 0% 50%;
+        }
+        50% {
+            background-position: 100% 50%;
+        }
+        100% {
+            background-position: 0% 50%;
+        } */
     }
 
     .login h1 {
@@ -108,6 +131,24 @@
     .register-link a:hover {
         text-decoration: underline;
     }
+    
+    /* body {
+        background: linear-gradient(300deg, #00bfff, #ff4c68, #ef8172, green);
+        background-size: 180% 180%;
+        animation: gradient-animation 1ms ease-in-out  infinite;
+        }
+
+        @keyframes gradient-animation {
+        0% {
+            background-position: 0% 50%;
+        }
+        50% {
+            background-position: 100% 50%;
+        }
+        100% {
+            background-position: 0% 50%;
+        }
+        } */
 </style>
 
 <div class="login-container">
