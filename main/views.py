@@ -1,5 +1,5 @@
 from django.shortcuts import render
-from django.http import HttpResponseRedirect
+from django.http import HttpResponseNotFound, HttpResponseRedirect
 from main.forms import Item,ProductForm
 from django.urls import reverse
 from django.http import HttpResponse
@@ -15,6 +15,8 @@ from django.http import HttpResponseRedirect
 from django.urls import reverse
 from django.shortcuts import redirect
 from .models import Item
+from django.views.decorators.csrf import csrf_exempt
+from django.http import JsonResponse
 
 
 # Create your views here.
@@ -128,3 +130,75 @@ def edit_product(request, id):
 
     context = {'form': form}
     return render(request, "edit_product.html", context)
+
+def get_product_json(request):
+    product_item = Item.objects.filter(user=request.user)
+    return HttpResponse(serializers.serialize('json', product_item))
+
+
+@csrf_exempt
+def add_product_ajax(request):
+    if request.method == 'POST':
+        name = request.POST.get("name")
+        price = request.POST.get("price")
+        description = request.POST.get("description")
+        sell = request.POST.get("sell")
+        amount = request.POST.get("amount")
+        modifiers = request.POST.get("modifiers")
+        user = request.user
+
+        new_product = Item(name=name, price=price, description=description, user=user, sell=sell, modifiers=modifiers, amount=amount)
+        new_product.save()
+
+        return HttpResponse(b"CREATED", status=201)
+
+    return HttpResponseNotFound()
+
+@csrf_exempt
+def delete_product_ajax(request, product_id):
+    if request.method == 'POST':
+        try:
+            product = Item.objects.get(pk=product_id)
+            product.delete()
+            return JsonResponse({'status': 'success', 'message': 'Product successfully deleted'})
+        except Item.DoesNotExist:
+            return JsonResponse({'status': 'error', 'message': 'Product not found'})
+    return JsonResponse({'status': 'error', 'message': 'Invalid request method'})
+
+@csrf_exempt
+def decrease_product_ajax(request, product_id):
+    try:
+        product = Item.objects.get(pk=product_id)
+        product.amount -= 1
+        if product.amount <= 0:
+            product.delete()
+            return JsonResponse({'status': 'deleted'})
+        else:
+            product.save()
+        return JsonResponse({'status': 'success'})
+    except Item.DoesNotExist:
+        return JsonResponse({'status': 'error', 'message': 'Product not found'})
+    
+@csrf_exempt
+def add_amount_ajax(request, product_id):
+    try:
+        product = Item.objects.get(pk=product_id)
+        product.amount += 1
+        product.save()
+        return JsonResponse({'status': 'success'})
+    except Item.DoesNotExist:
+        return JsonResponse({'status': 'error', 'message': 'Product not found'})
+
+@csrf_exempt
+def edit_product_ajax(request, product_id):
+    if request.method == 'POST':
+        try:
+            product = Item.objects.get(pk=product_id)
+            for key, value in request.POST.items():
+                if hasattr(product, key):
+                    setattr(product, key, value)
+            product.save()
+            return JsonResponse({'status': 'success', 'message': 'Product successfully updated'})
+        except Item.DoesNotExist:
+            return JsonResponse({'status': 'error', 'message': 'Product not found'})
+    return JsonResponse({'status': 'error', 'message': 'Invalid request method'})
