@@ -4,7 +4,7 @@ NPM     : 2206819092
 
 Kelas   : PBP C
 
-Berikut adalah tautan link adaptable saya. [Adaptable Link](https://crimson-chestvol2.adaptable.app/main/)
+Berikut adalah tautan link adaptable saya. [Link Deploy](http://caesar-syahru-tugas.pbp.cs.ui.ac.id/)
 
 berikut adalah link tugas:
 
