@@ -1,3 +1,4 @@
+import json
 from django.shortcuts import render
 from django.http import HttpResponseNotFound, HttpResponseRedirect
 from main.forms import Item,ProductForm
@@ -202,3 +203,24 @@ def edit_product_ajax(request, product_id):
         except Item.DoesNotExist:
             return JsonResponse({'status': 'error', 'message': 'Product not found'})
     return JsonResponse({'status': 'error', 'message': 'Invalid request method'})
+
+@csrf_exempt
+def create_product_flutter(request):
+    if request.method == 'POST':
+        
+        data = json.loads(request.body)
+
+        new_product = Item.objects.create(
+            user = request.user,
+            name = data["name"],
+            price = int(data["price"]),
+            amount = int(data["amount"]),
+            description = data["description"],
+            modifiers = data["modifiers"],
+        )
+
+        new_product.save()
+
+        return JsonResponse({"status": "success"}, status=200)
+    else:
+        return JsonResponse({"status": "error"}, status=401)
